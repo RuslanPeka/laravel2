@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customers;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class CustomersController
@@ -21,7 +22,13 @@ class CustomersController
 {
     public function index()
     {
-        $objModel = new Customers;
+        $objModel = new Customers();
         $objModel->getData();
+        return [3];
+    }
+
+    public function getCustomers()
+    {
+        return DB::table('customers')->get();
     }
 } 
